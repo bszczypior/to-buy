@@ -1,0 +1,41 @@
+.listWrapper{
+display: flex;
+justify-content: center;
+width: 100vw;
+}
+.listWrapper ul{
+    list-style: none;
+}
+.itemList{
+    width: 75vw;
+    height: 10vh;
+   border: solid 2px blue;
+   border-radius: 5px;
+   box-shadow: 3px 10px 10px -2px rgb(179, 179, 179);
+   margin-top: 10px;
+   margin-bottom: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 18px;
+   font-family: 'Mali', sans-serif;
+   font-weight: 800;
+}
+.nonelist{
+    display: none;
+}
+.itemNoList{
+    width: 75vw;
+    height: 10vh;
+   border: solid 2px rgb(255, 51, 0);
+   border-radius: 5px;
+   box-shadow: 3px 10px 10px -2px rgb(179, 179, 179);
+   margin-top: 10px;
+   margin-bottom: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 15px;
+   font-family: 'Mali', sans-serif;
+   font-weight: 800;
+}

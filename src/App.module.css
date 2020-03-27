@@ -1,0 +1,28 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  
+}
+.plusIcon{
+  position: fixed;
+  font-size: 2.5em;
+ top:85vh;
+ display: flex;
+margin-left: 80vw;
+
+  color:green;
+  
+ 
+}
+.closeIcon{
+  position: fixed;
+  font-size: 2.8em;
+ top:85vh;
+ display: flex;
+margin-left: 80vw;
+
+  color:red;
+  
+ 
+}
+

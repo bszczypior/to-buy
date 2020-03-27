@@ -1,0 +1,16 @@
+.modal{
+    width: 80vw;
+    height: 70vh;
+    top: 13vh;
+    margin-left: 12vw;
+    background-color: white;
+    box-shadow: 5px 5px 15px -3px grey;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding:15px
+    
+}
+.modalunshow{
+    display: none;
+}
