@@ -4,12 +4,12 @@ import { FaRegCheckSquare, } from "react-icons/fa";
 import { GiSandwich,GiChemicalDrop, GiBroom, GiPerfumeBottle} from "react-icons/gi";
 import firebase from "../../firebase";
 
-const Additem = () => {
+const Additem = ({user}) => {
 const [title,setTitle]=useState("")
 const [category,setCategory]=useState("")
   const addFun = () =>{
     const db = firebase.firestore();
-    db.collection("kb").doc().set({
+    db.collection(`${user}`).doc().set({
      title:title,
      category:category
   })

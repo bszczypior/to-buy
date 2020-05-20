@@ -25,4 +25,48 @@ margin-left: 80vw;
   
  
 }
+.iconnone{
+  display: none;
+}
 
+.loginForm{
+  width: 100vw;
+  height: 80vh;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputPlace{
+  width: 70vw;
+  height: 10vh;
+  margin-top:5vh;
+  font-size:1.2em;
+  padding:2vh 3vw;
+  border: solid 1px rgb(127, 127, 247);
+  background-color: white;
+  outline: none;
+ 
+}
+.inputPlaceButton{
+  width: 60vw;
+  height: 10vh;
+  margin-top:5vh;
+  font-size:1.2em;
+  padding:2vh 3vw;
+  border: none;
+  border-radius: 30px;
+  background-color: rgb(105, 107, 248);
+  box-shadow: 4px 12px 19px 3px rgb(192, 192, 192);
+  color: white;
+  font-weight: 600;
+}
+.iconnone{
+  display: none;
+}
+h4{
+  margin-top: 7vh;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}

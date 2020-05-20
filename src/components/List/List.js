@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import style from "./List.module.css";
 import firebase from "../../firebase";
+import { MdDelete } from "react-icons/md";
 
-const List = ({ items, cat }) => {
+const List = ({ items, cat ,user }) => {
   var db = firebase.firestore();
   const [newList, setNewList] = useState([]);
 
@@ -10,9 +11,8 @@ const List = ({ items, cat }) => {
     setNewList(items);
   }, [items]);
   const deleteItem = id => {
-    console.log(id);
-
-    db.collection("kb")
+   
+    db.collection(`${user}`)
       .doc(id)
       .delete()
       .then(function() {
@@ -34,6 +34,8 @@ const List = ({ items, cat }) => {
             onClick={deleteItem.bind(null, item.id)}
           >
             {item.title}
+            
+            
           </li>
         )): 
         <li className={style.itemNoList}>Brak produktów w tej kategorii</li>
