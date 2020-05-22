@@ -7,6 +7,7 @@ import firebase from "../../firebase";
 const Additem = ({user}) => {
 const [title,setTitle]=useState("")
 const [category,setCategory]=useState("")
+const [categoryTitle,setCategoryTitle]=useState("")
   const addFun = () =>{
     const db = firebase.firestore();
     db.collection(`${user}`).doc().set({
@@ -15,7 +16,8 @@ const [category,setCategory]=useState("")
   })
   .then(function() {
       setTitle("")
-       
+      setCategory("")
+      setCategoryTitle("") 
   })
   .catch(function(error) {
       console.error("Error writing document: ", error);
@@ -26,22 +28,36 @@ const [category,setCategory]=useState("")
 
   return (
     <div className={style.additem}>
-       <input  value={title} onChange={(e)=>setTitle(e.target.value)} />
-        <form>
-            <span>
-            <GiSandwich className={style.food} onClick={()=>setCategory("food")}/>
-            </span>
-            <span>
-               <GiChemicalDrop className={style.food} onClick={()=>setCategory("chemisty")}/>
-            </span>
-            <span>
-               <GiBroom className={style.food} onClick={()=>setCategory("homeeq")}/>
-            </span>
-            <span>
-                <GiPerfumeBottle className={style.food} onClick={()=>setCategory("drugstore")}/>
-            </span>
+       <input  value={title} onChange={(e)=>setTitle(e.target.value.toLocaleUpperCase())} />
+       
+        <div className={style.icons}>
+           
+            <GiSandwich className={style.categoryIcon} onClick={()=>{
+            setCategory("food") 
+            setCategoryTitle("Jedzenie")}}/>
             
-        </form>
+     
+               <GiChemicalDrop className={style.categoryIcon} onClick={()=>{
+                 setCategoryTitle("Chemia gospodarcza")
+                 setCategory("chemisty")}}/>
+            
+            
+               <GiBroom className={style.categoryIcon} onClick={()=>{
+                 setCategory("homeeq")
+                 setCategoryTitle("Produkty gospodarstwa domowego")
+              }}/>
+            
+            
+                <GiPerfumeBottle className={style.categoryIcon} onClick={()=>{
+                  setCategoryTitle("Produkty drogeryjne")
+                  setCategory("drugstore")}}/>
+           
+           
+        </div>
+        <div className={style.textOutput}>
+  <h2>{categoryTitle}</h2>
+        </div>
+       
         <FaRegCheckSquare className={style.addButton} onClick={addFun}></FaRegCheckSquare>
 
     </div>

@@ -1,4 +1,5 @@
 .modal{
+    position: static;
     width: 80vw;
     height: 70vh;
     top: 13vh;

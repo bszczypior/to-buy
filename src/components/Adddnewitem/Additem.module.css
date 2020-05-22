@@ -1,15 +1,16 @@
 .additem {
+  
   width: 100vw;
-  height: 10vh;
+  height: 100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 .additem input {
-  position: absolute;
+  
   text-align: center;
   width: 70vw;
   height: 8vh;
+ margin-bottom: 5vh;
   border: solid 2px lightblue;
   border-radius: 5px;
   outline: none;
@@ -28,28 +29,142 @@
   border:none
 }
 
-.additem form span input{
 
-  display: none;
-}
-.additem form{
-  top:80px;
-  position: relative;;
+.icons{
+ width: 70vw;
+  height: 15vh;
+  left: 0;
  display: flex;
-  left:5vw;
  flex-direction: row;
+ justify-content: space-between;
+ 
+
  
  
 }
-.food{
-  margin-left: 10px;
-  width: 50px;
-  height: 50px;
+.categoryIcon{
+  
+  min-width: 16vw;
+  height: 10vh;
+  transition: 0.5s ease-in-out;
+  border:solid 2px lightblue;
+  padding:5px;
+  color:rgb(81, 81, 243);
+  
+}
+.categoryIcon:hover{
+  background-color: rgb(233, 233, 233);
+
+}
+.categoryIcon:active{
+ 
+  width: 55px;
+  height: 55px;
   transition: 0.5s ease-in-out;
   border:solid 2px black;
   padding:5px
 }
-.food:hover{
-  background-color: rgb(233, 233, 233);
-
+.textOutput{
+  top:25vh;
+ position: absolute;
+  width:90%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+.textOutput h2{
+  margin-top:5vh;
+  margin-bottom: 5vh;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(53, 53, 53);
+}
+
+@media screen and (min-width: 600px) {
+  .additem {
+  position: static;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .additem input {
+    
+    text-align: center;
+    margin-bottom: 5vh;
+    width: 70vw;
+    height: 8vh;
+   
+    border: solid 2px lightblue;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    padding:10px;
+    color: rgb(83, 83, 83);
+  }
+  .addButton {
+    color: rgb(67, 190, 67);
+    position: absolute;
+    top: 75%;
+    width: 45vw;
+    height: 10vh;
+   margin-left: 15vw;
+    background:none;
+    border:none
+  }
+  
+  
+  .icons{
+   width: 70vw;
+    height: 15vh;
+    left: 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   
+   
+  
+   
+   
+  }
+  .categoryIcon{
+    
+    width: 16vw;
+    min-height: 18vh;
+  
+    transition: 0.5s ease-in-out;
+    border:solid 2px lightblue;
+    padding:5px;
+    color:rgb(81, 81, 243);
+    
+  }
+  .categoryIcon:hover{
+    background-color: rgb(233, 233, 233);
+  
+  }
+  .categoryIcon:active{
+   
+   min-width: 55px;
+    min-height: 55px;
+    transition: 0.5s ease-in-out;
+    border:solid 2px black;
+    padding:5px
+  }
+  .textOutput{
+    top:35vh;
+   position: static;
+    width:70vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .textOutput h2{
+    margin-top:5vh;
+    margin-bottom: 5vh;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(53, 53, 53);
+  }
+}  

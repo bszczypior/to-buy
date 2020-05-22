@@ -16,6 +16,7 @@ function App() {
   const [username , setUserName]=useState("")
   const [isLogin, setLogin] = useState(false);
   const [showmodal, setShowmodal] = useState(false);
+  const [dangerShow,setShowDanger]=useState(false);
   const addNewItem = () => {
     setShowmodal(!showmodal);
   };
@@ -74,9 +75,15 @@ function App() {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(setLogin(true))
+      .then(setEmail(''), setPassword(''))
       .catch(function (error) {
+        
+        setLogin(false)
+       setShowDanger(true);
         var errorCode = error.code;
         var errorMessage = error.message;
+        // ...
       });
   };
   const logFun = () => {
@@ -86,7 +93,9 @@ function App() {
       .then(setLogin(true))
       .then(setEmail(''), setPassword(''))
       .catch(function (error) {
+        
         setLogin(false)
+       setShowDanger(true);
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
@@ -96,6 +105,13 @@ function App() {
   };
   return (
     <div className={style.app}>
+  <div className={dangerShow ? style.alertModal : style.alerModalNone}>
+    <h1>Błąd logowania!</h1>
+    <h3>Spróbój ponowninie</h3>
+    <button onClick={()=>setShowDanger(false)}>zamknij</button>
+</div>
+
+
       <Modal show={showmodal} user={curuser} />
       <Header logoutFun={logoutFunc} name={username} login={isLogin} />
       {isLogin ? (
@@ -105,18 +121,21 @@ function App() {
         </div>
       ) : (
         <div className={style.loginForm}>
+         
           <input
             placeholder={"Email"}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
             className={style.inputPlace}
+            type="email"
           ></input>
           <input
             placeholder={"Password"}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value.toLocaleLowerCase())}
             className={style.inputPlace}
+            type="password"
           ></input>
            <button onClick={logFun} className={style.inputPlaceButton}>logowanie</button>
-           <h4>Jeśli nie masz konta po wprowadzeniu danych zarejestruj się</h4>
+           <h4>Jeśli nie masz konta po wprowadzeniu danych wciśnij przycisk niżej</h4>
           <button onClick={regFun} className={style.inputPlaceButton}>rejestracja</button>
          
          
@@ -127,6 +146,7 @@ function App() {
       ) : (
         <FaPlusCircle className={isLogin ? style.plusIcon : style.iconnone} onClick={addNewItem} />
       )}
+
     </div>
   );
 }
